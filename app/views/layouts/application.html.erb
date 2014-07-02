@@ -9,12 +9,37 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <script type="text/javascript" id="sourcecode">
+    $('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
+    });
+    </script>
   </head>
   <body>
       <%= render 'layouts/navigation' %>
     <div class="container">
+
+      <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key) %>">
+              <%= value %>
+        </div>
+      <% end %>
+
       <%= render 'layouts/messages' %>
       <%= yield %>
+      
+
+      <hr class="featurette-divider">
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>© 2014 dev.null, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer>
 	</div>
+      <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </body>
 </html>
