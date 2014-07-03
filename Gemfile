@@ -22,7 +22,7 @@ gem 'autoprefixer-rails'
 gem 'haml'
 gem 'google-api-client'
 gem "omniauth-google-oauth2", "~> 0.2.1"
-
+gem 'devise'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
