@@ -23,6 +23,8 @@ gem 'haml'
 gem 'google-api-client'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'devise'
+gem 'tzinfo-data'
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
