@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-
+  load_and_authorize_resource
 def index
   @articles = Article.all
 end
@@ -21,6 +21,7 @@ end
 
 def edit
   @article = Article.find(params[:id])
+  unauthorized! if cannot? :update, @article
 end
 
 def update
@@ -34,11 +35,15 @@ def update
 end
 
 def destroy
+  if current_user.admin?
+  # do something
+
   @article = Article.find(params[:id])
   
-  if @article.destroy
- 	flash[:warn] = "Post successfully deleted"
-  	redirect_to articles_path
+    if @article.destroy
+   	flash[:warn] = "Post successfully deleted"
+    	redirect_to articles_path
+    end
   end
 end
 
