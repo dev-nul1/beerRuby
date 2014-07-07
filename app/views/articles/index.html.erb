@@ -2,10 +2,11 @@
 
       <div class="jumbotron">
         <h1>Listing articles</h1>
-        
         <p><%= link_to "Frontpage", root_path, class: "btn btn-primary btn-lg" %></p>
       </div>
+        <% if can? :create, @article %>
      <button type="button" class="btn btn-default"> <%= link_to 'Create new article', new_article_path %></button>
+     <% end %>
      <hr>
 
 <div class="row">
