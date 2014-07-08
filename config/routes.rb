@@ -5,11 +5,15 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :articles
-
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
   get 'articles(.:format)' => 'articles#index'
+
+  resources :hops do
+    collection { post :import }
+  end
+ get 'hops(.:id)' => 'hops#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

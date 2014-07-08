@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hopsName: MyString
+  hopsGrown: MyString
+  hopsInfo: MyString
+  hopsUse: MyString
+  hopsExample: MyString
+  hopsAAULow: 1
+  hopsAAUHigh: 1
+  hopsSub: MyString
+
+two:
+  hopsName: MyString
+  hopsGrown: MyString
+  hopsInfo: MyString
+  hopsUse: MyString
+  hopsExample: MyString
+  hopsAAULow: 1
+  hopsAAUHigh: 1
+  hopsSub: MyString

@@ -1,0 +1,57 @@
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+
+      <div class="jumbotron">
+        <h1>Hops</h1>
+        <p><%= link_to "Frontpage", root_path, class: "btn btn-primary btn-lg" %></p>
+      </div>
+        <% if can? :create, @hop %>
+     <button type="button" class="btn btn-default"> <%= link_to 'Add hops', new_hop_path %></button>
+     <% end %>
+     <%= form_tag import_hops_path, multipart: true do %>
+	  <%= file_field_tag :file %>
+	  <%= submit_tag "Import" %>
+<% end %>
+     <hr>
+
+<div class="row">
+          <div class="col-md-12">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Grown</th>
+                <th>Info</th>
+                <th>Use</th>
+                <th>Example</th>
+                <th>AAU Low</th>
+                <th>AAU High</th>
+                <th>Substitution</th>
+              </tr>
+            </thead>
+            <tbody class="table-hover">
+              <tr>
+                  <% @hop.each do |hop| %>
+
+				<td><%= hop.id %></td>
+				<td><%= hop.hopsName %></td>
+				<td><%= hop.hopsGrown %></td>
+				<td><%= hop.hopsInfo %></td>
+				<td><%= hop.hopsUse %></td>
+				<td><%= hop.hopsExample %></td>
+				<td><%= hop.hopsAAULow %></td>
+				<td><%= hop.hopsAAUHigh %></td>
+				<td><%= hop.hopsSub %></td>
+
+              </tr>
+          <% end %>
+
+            </tbody>
+          </table>
+
+        </div>
+</div>
+
+
+
+

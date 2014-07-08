@@ -1,0 +1,52 @@
+<%= form_for @hop do |f| %>
+  <% if @hop.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@hop.errors.count, "error") %> prohibited
+      this article from being saved:</h2>
+    <ul>
+    <% @hop.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :hopsName %><br>
+    <%= f.text_field :hopsName %>
+  </p>
+ 
+  <p>
+    <%= f.label :hopsGrown %><br>
+    <%= f.text_area :hopsGrown %>
+  </p>
+ 
+ <p>
+    <%= f.label :hopsInfo %><br>
+    <%= f.text_area :hopsInfo %>
+  </p>
+  <p>
+    <%= f.label :hopsUse %><br>
+    <%= f.text_area :hopsUse %>
+  </p>
+  <p>
+    <%= f.label :hopsExample %><br>
+    <%= f.text_area :hopsExample %>
+  </p>
+  <p>
+    <%= f.label :hopsAAULow %><br>
+    <%= f.text_area :hopsAAULow %>
+  </p>
+  <p>
+    <%= f.label :hopsAAUHigh %><br>
+    <%= f.text_area :hopsAAUHigh %>
+  </p>
+  <p>
+    <%= f.label :hopsSub %><br>
+    <%= f.text_area :hopsSub %>
+  </p>
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
