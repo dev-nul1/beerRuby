@@ -1,19 +1,20 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an exploration of Ruby on Rails. The App is being created to manage home brewers, beers, brew days and other relative things.
+
+Looking forward to logging temps during the brew, fermentation and displaying Charts.
+Recipe info for search of recreating the same brew, every brewday.. unless wanting other-wise!
+Responsive, using BootStrap 3.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby 2.0
 
-* System dependencies
+* Look at gemfile...
 
 * Configuration
 
-* Database creation
-
-* Database initialization
+* Database creation (sqlite 3, goto Heroku? Postgres later)
 
 * How to run the test suite
 
@@ -22,7 +23,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
