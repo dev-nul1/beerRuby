@@ -1,11 +1,34 @@
 <% if user_signed_in? %>
-  <li>Welcome <%= current_user.email %></li>
   <li><%= link_to 'Logged In [click to logout]', destroy_user_session_path, :method => :delete %></li>
 <% else %>
-  <li>You are not signed in.</li>
   <li><%= link_to 'Login', new_user_session_path %></li>
 <% end %>
+
+<!--<li><form class="navbar-form navbar-right" role="form">
+
+            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-caret-down"> Login</span></a><ul class="dropdown-menu">
+    <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+    <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+    <li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><i class="i"></i> Make admin</a></li>
+  </ul>
+          </form></li> -->
+  <li><%= form_for(:user, :html => {:class => "navbar-form navbar-right" }, :url => session_path(:user)) do |f| %>
+    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-caret-down"> Login</span></a><ul class="dropdown-menu">
+
+  <%= f.text_field :email %>
+  <%= f.password_field :password %>
+  <%= f.check_box :remember_me %>
+  <%= f.label :remember_me %>
+  <%= f.submit 'Sign in' %>
+  <%= link_to "Forgot your password?", new_password_path(:user) %>
+<% end %>
+</li>
 <!--
+
+  <li>You are not signed in.</li>
+
 <div class="btn-group open">
   <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> </a>
   <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
