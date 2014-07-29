@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  maltName: MyString
+  maltLovibond: MyString
+  maltInfo: MyString
+  maltCategory: MyString
+  maltYield: MyString
+  maltOrigin: 1
+  maltSupplier: 1
+  maltType: MyString
+
+two:
+  maltName: MyString
+  maltLovibond: MyString
+  maltInfo: MyString
+  maltCategory: MyString
+  maltYield: MyString
+  maltOrigin: 1
+  maltSupplier: 1
+  maltType: MyString

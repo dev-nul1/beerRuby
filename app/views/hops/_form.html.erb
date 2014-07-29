@@ -12,41 +12,41 @@
   <% end %>
   <p>
     <%= f.label :hopsName %><br>
-    <%= f.text_field :hopsName %>
+    <%= f.text_field :hopsName, :class => "form-control" %>
   </p>
  
   <p>
     <%= f.label :hopsGrown %><br>
-    <%= f.text_area :hopsGrown %>
+    <%= f.text_area :hopsGrown, :class => "form-control" %>
   </p>
  
  <p>
     <%= f.label :hopsInfo %><br>
-    <%= f.text_area :hopsInfo %>
+    <%= f.text_area :hopsInfo, :class => "form-control" %>
   </p>
   <p>
     <%= f.label :hopsUse %><br>
-    <%= f.text_area :hopsUse %>
+    <%= f.text_area :hopsUse, :class => "form-control" %>
   </p>
   <p>
     <%= f.label :hopsExample %><br>
-    <%= f.text_area :hopsExample %>
+    <%= f.text_area :hopsExample, :class => "form-control" %>
   </p>
   <p>
     <%= f.label :hopsAAULow %><br>
-    <%= f.text_area :hopsAAULow %>
+    <%= f.text_area :hopsAAULow, :class => "form-control" %>
   </p>
   <p>
     <%= f.label :hopsAAUHigh %><br>
-    <%= f.text_area :hopsAAUHigh %>
+    <%= f.text_area :hopsAAUHigh, :class => "form-control" %>
   </p>
   <p>
     <%= f.label :hopsSub %><br>
-    <%= f.text_area :hopsSub %>
+    <%= f.text_area :hopsSub, :class => "form-control" %>
   </p>
 
 
   <p>
-    <%= f.submit %>
+    <%= f.submit "Add Hops", :class =>'btn btn-info' %>
   </p>
 <% end %>

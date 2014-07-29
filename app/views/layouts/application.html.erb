@@ -17,23 +17,21 @@
     window.location.href = location;
     return false;
     });
+    $(function() {
+   $('#alert').delay(500).fadeIn('normal', function() {
+      $(this).delay(2500).fadeOut();
+   });
+});
     </script>
-    <script>
-      $(document).ready(function()
-      {
-        //Handles menu drop down
-        $('.dropdown-menu').find('form').click(function (e) {
-              e.stopPropagation();
-              });
-        });
-</script>
+
   </head>
   <body>
+
       <%= render 'layouts/navigation' %>
     <div class="container">
 
       <% flash.each do |key, value| %>
-        <div class="<%= flash_class(key) %>">
+        <div id="alert" class="<%= flash_class(key) %>">
               <%= value %>
         </div>
       <% end %>

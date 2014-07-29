@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708230757) do
+ActiveRecord::Schema.define(version: 20140729200453) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -33,7 +33,15 @@ ActiveRecord::Schema.define(version: 20140708230757) do
     t.datetime "updated_at"
   end
 
-  create_table "recipes", force: true do |t|
+  create_table "malts", force: true do |t|
+    t.string   "maltName"
+    t.string   "maltLovibond"
+    t.string   "maltInfo"
+    t.string   "maltCategory"
+    t.string   "maltYield"
+    t.integer  "maltOrigin"
+    t.integer  "maltSupplier"
+    t.string   "maltType"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

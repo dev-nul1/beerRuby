@@ -14,6 +14,11 @@ Rails.application.routes.draw do
     collection { post :import }
   end
  get 'hops(.:id)' => 'hops#index'
+
+  resources :malts do
+    collection { post :import }
+  end
+ get 'malts(.:id)' => 'malts#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

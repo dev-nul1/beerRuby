@@ -1,5 +1,6 @@
 class HopsController < ApplicationController
 	before_filter :authenticate_user!, :except => [:index, :show]
+
 def index
 	@hop = Hop.all
 end
@@ -24,10 +25,14 @@ def show
 end
 
 
-
 def import
   Hop.import(params[:file])
-  redirect_to root_url, notice: "Hops imported."
+  #if Hop.import(params[:file]) == nil
+    #  flash[:notice] = "No file"
+  #else
+  redirect_to hops_path, notice: "Hops imported."
+  #end
+
 end
 
 private
