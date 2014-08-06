@@ -1,0 +1,16 @@
+<header>
+  <p class="explainer">Welcome </p>
+  <p class="explainer">To get started, select a recipe below, or <%= link_to "upload your own", new_recipe_url %>.</p>
+  <p class="explainer">Start brewing better beer!</p>
+</header>
+
+<div id="recipes-index">
+
+
+  <div id="recipe-list">
+    <h1>All Recipes</h1>
+    <ul class="recipe-tiles group">
+      <%= render @recipes %>
+    </ul>
+  </div>
+</div>

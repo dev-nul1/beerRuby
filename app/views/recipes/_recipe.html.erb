@@ -1,0 +1,13 @@
+<style>
+#recipe-<%= recipe.id %> a{
+  background-size: cover;
+}
+</style>
+
+<li class="recipe-tile" id="recipe-<%= recipe.id %>">
+  <a class="group" href="<%= recipe_url(recipe) %>">
+    <h2><%= recipe.name %></h2>
+    <h3>By <%= recipe.user %></h3>
+  </a>
+  <%= image_tag "shadow.png" %>
+</li>

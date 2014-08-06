@@ -19,6 +19,15 @@ Rails.application.routes.draw do
     collection { post :import }
   end
  get 'malts(.:id)' => 'malts#index'
+
+   resources :yeasts do
+    collection { post :import }
+  end
+ get 'yeasts(.:id)' => 'yeasts#index'
+
+ resources :recipes, except: [:edit, :update] do
+  resources :hops, :malts, :yeasts, :articles
+end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

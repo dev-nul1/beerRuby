@@ -1,0 +1,204 @@
+<div id="recipe">
+
+  <header>
+    <h1 class="recipe-name"><%= @recipe.name %></h1>
+    <h2 class="recipe-author">
+      By <%= link_to @recipe.user.username, @recipe.user %>
+    </h2>
+    <% if @recipe.parent %>
+    <h2 class="original-author">Originally uploaded by:
+      <%= link_to @recipe.parent.user.username, @recipe.parent.user %></h2>
+    <% end %>
+
+    <% if current_users_recipe?(@recipe) %>
+    <p class="explainer">
+      Ready to brew? Click Brew Me to walk through the process!
+    <p>
+    <% else %>
+    <p class="explainer">
+      Like this recipe? Click "Clone Me" to get started!
+    </p>
+    <% end %>
+    <p class="explainer">
+      Or click on Brew Notes to see how this brew turned out<%=
+       " for #{@recipe.user.username}" unless current_users_recipe?(@recipe) %>.
+    </p>
+  </header>
+
+  <div class="buttons group">
+    <ul>
+      <li>
+        <% if current_users_recipe?(@recipe) %>
+          <%= link_to "Brew Me!", new_recipe_brew_note_url(@recipe.id),
+                     class:"brew-me" %>
+        <% else %>
+          <form action="<%= recipes_url %>" method="post">
+            <input type="hidden" name="authenticity_token"
+                   value="<%= form_authenticity_token %>">
+            <input type="hidden" name="recipe[name]"
+                   value="<%= @recipe.name %>">
+            <input type="hidden" name="recipe[xml]" value="<%= @recipe.xml %>">
+            <input type="hidden" name="recipe[parent_id]"
+             value="<%= @recipe.parent ? @recipe.parent_id : @recipe.id %>">
+            <input type="submit" value="Clone Me" class="clone-me">
+          </form>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "Brew Notes", recipe_brew_notes_url(@recipe.id),
+                    class: "brew-notes" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="properties ingredients">
+    <h2>Predicted Recipe Properties</h2>
+    <table>
+      <thead>
+        <tr class="properties-head">
+          <th>Property</th>
+          <th>Estimated Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% properties_array =
+          [
+            ['OG', 'estimated_og'],
+            ['FG', 'estimated_fg'],
+            ['IBU', 'estimated_ibu'],
+            ['ABV', 'estimated_abv'],
+            ['Color (SRM)', 'estimated_color']
+          ]
+        %>
+        <% properties_array.each do |name, estimated| %>
+        <tr class="properties-row">
+          <td><%= name %></td><td><%= @recipe.send(estimated).round(3) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="fermentables ingredients">
+  <h2>Fermentables</h2>
+    <table class="fermentables-table">
+      <thead>
+        <tr class="fermentables-head">
+          <th>Name</th>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>˚L</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe.fermentables.each do |fermentable| %>
+          <tr class="fermentables-row">
+            <td title="<%= fermentable.notes %>"><%= fermentable.name %></td>
+            <td><%= fermentable.amount.to_lb.to_f.round(2) %> lbs</td>
+            <td><%= fermentable.type %></td>
+            <td><%= fermentable.color %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hops ingredients">
+    <h2>Hops</h2>
+    <table class="hops-table">
+      <thead>
+        <tr class="hops-head">
+          <th>Name</th>
+          <th>Amount</th>
+          <th>Time</th>
+          <th>Use</th>
+          <th>Form</th>
+          <th>AA%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe.hops.sort_by {|hop| hop.time.to_f }.reverse.each do |hop| %>
+          <tr class="hops-row">
+            <td title="<%= hop.notes %>"><%= hop.name %></td>
+            <td><%= hop.amount.to_oz.to_f.round(2) %> oz</td>
+            <td><%= hop.time.to_f.to_i %> <%= hop.time.unit %></td>
+            <td><%= hop.use %></td>
+            <td><%= hop.form %></td>
+            <td><%= hop.alpha %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="yeasts ingredients">
+  <h2>Yeasts</h2>
+    <table class="yeasts-table">
+      <thead>
+        <tr id="yeasts-head">
+          <th>Name</th>
+          <th>Lab</th>
+          <th>Form</th>
+          <th>Attenuation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe.yeasts.each do |yeast| %>
+          <tr class="yeasts-row">
+            <td title="<%= yeast.notes %>"><%= yeast.name %></td>
+            <td><%= yeast.laboratory %></td>
+            <td><%= yeast.form %></td>
+            <td><%= yeast.attenuation %>%</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <% unless @recipe.miscs.empty? %>
+    <div class="additives ingredients">
+      <h2>Additives</h2>
+      <table class="additives-table">
+        <thead>
+          <tr class="additives-head">
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Time</th>
+            <th>Use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recipe.miscs.sort_by {|misc| misc.time.to_f }.
+             reverse.each do |misc| %>
+            <tr class="additives-row">
+              <td title="<%= misc.notes %>"><%= misc.name %></td>
+              <% if misc.amount.unit == "kilograms" %>
+                <td><%= misc.amount.to_oz.to_f.round(2) %> oz</td>
+              <% elsif misc.name == "Whirlfloc Tablet" %>
+                <td><%= misc.amount.to_f.to_i %> each</td>
+              <% else %>
+                <td>
+                  <%= misc.amount.to_f.round(3) %> <%= misc.amount.unit %>
+                </td>
+              <% end %>
+              <% if misc.time.to_f.to_i % 1440 == 0 %>
+                <td><%= misc.time.to_days.to_f.to_i %> days</td>
+              <% else %>
+                <td>
+                  <%= misc.time.to_f.to_i %> <%= misc.time.unit %>
+                </td>
+              <% end %>
+              <td><%= misc.use %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>
+
+<script>
+$(function(){
+  $(document).tooltip();
+})
+</script>

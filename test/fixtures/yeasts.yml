@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  yeastName: MyString
+  yeastFloc: MyString
+  yeastAtten: MyString
+  yeastTolerance: MyString
+  yeastType: MyString
+  yeastForm: MyString
+  yeastAmount: 1
+  yeastLab: MyString
+  yeastProdID: MyString
+  yeastMinTemp: 1
+  yeastMaxTemp: 1
+  yeastNotes: MyString
+  yeastBestFor: MyString
+  yeastMaxReuse: 1
+
+two:
+  yeastName: MyString
+  yeastFloc: MyString
+  yeastAtten: MyString
+  yeastTolerance: MyString
+  yeastType: MyString
+  yeastForm: MyString
+  yeastAmount: 1
+  yeastLab: MyString
+  yeastProdID: MyString
+  yeastMinTemp: 1
+  yeastMaxTemp: 1
+  yeastNotes: MyString
+  yeastBestFor: MyString
+  yeastMaxReuse: 1
