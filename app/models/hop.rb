@@ -1,5 +1,5 @@
 class Hop < ActiveRecord::Base
-
+belongs_to :recipe
   
   def self.import(file)
   if file == nil

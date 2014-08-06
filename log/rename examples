@@ -1,0 +1,74 @@
+class FixColumnName < ActiveRecord::Migration
+    def change
+    	change_table :hops do |t|
+	  	t.rename :hopsName, :hops_name
+	  	t.rename :hopsGrown, :hops_grown
+	  	t.rename :hopsInfo, :hops_info
+	  	t.rename :hopsUse, :hops_use
+	  	t.rename :hopsExample, :hops_example
+	  	t.rename :hopsAAULow, :hops_aau_low
+	  	t.rename :hopsAAUHigh, :hops_aau_high
+	  	t.rename :hopsSub, :hops_sub
+	  	end
+	  	change_table :malts do |f|
+	   	f.rename :maltName, :malt_name
+		f.rename :maltLovibond, :malt_lovibond
+		f.rename :maltInfo, :malt_info
+		f.rename :maltCategory, :malt_category
+		f.rename :maltYield, :malt_yield
+		f.rename :maltOrigin, :malt_origin
+		f.rename :maltSupplier, :malt_supplier
+		f.rename :maltType, :malt_type
+		end
+		change_table :malts do |y|
+		y.rename :yeastName , :yeast_name
+		y.rename :yeastFloc, :yeast_floc
+		y.rename :yeastAtten, :yeast_atten
+		y.rename :yeastTolerance, :yeast_tolerance
+		y.rename :yeastType, :yeast_type
+		y.rename :yeastForm, :yeast_form
+		y.rename :yeastAmount, :yeast_amount
+		y.rename :yeastLab, :yeast_lab
+		y.rename :yeastProdID, :yeast_prod_id
+		y.rename :yeastMinTemp, :yeast_min_temp
+		y.rename :yeastMaxTemp, :yeast_max_temp
+		y.rename :yeastNotes, :yeast_notes
+		y.rename :yeastBestFor, :yeast_best_for
+		y.rename :yeastMaxReuse, :yeast_max_reuse
+		end
+ end
+
+ class FixColumnName < ActiveRecord::Migration
+    def change
+  	rename_column :hops, :hopsName, :hops_name
+  	rename_column :hops, :hopsGrown, :hops_grown
+  	rename_column :hops, :hopsInfo, :hops_info
+  	rename_column :hops, :hopsUse, :hops_use
+  	rename_column :hops, :hopsExample, :hops_example
+  	rename_column :hops, :hopsAAULow, :hops_aau_low
+  	rename_column :hops, :hopsAAUHigh, :hops_aau_high
+  	rename_column :hops, :hopsSub, :hops_sub
+  	rename_column :malts, :maltName, :malt_name
+	rename_column :malts, :maltLovibond, :malt_lovibond
+	rename_column :malts, :maltInfo, :malt_info
+	rename_column :malts, :maltCategory, :malt_category
+	rename_column :malts, :maltYield, :malt_yield
+	rename_column :malts, :maltOrigin, :malt_origin
+	rename_column :malts, :maltSupplier, :malt_supplier
+	rename_column :malts, :maltType, :malt_type
+	rename_column :yeasts, :yeastName , :yeast_name
+	rename_column :yeasts, :yeastFloc, :yeast_floc
+	rename_column :yeasts, :yeastAtten, :yeast_atten
+	rename_column :yeasts, :yeastTolerance, :yeast_tolerance
+	rename_column :yeasts, :yeastType, :yeast_type
+	rename_column :yeasts, :yeastForm, :yeast_form
+	rename_column :yeasts, :yeastAmount, :yeast_amount
+	rename_column :yeasts, :yeastLab, :yeast_lab
+	rename_column :yeasts, :yeastProdID, :yeast_prod_id
+	rename_column :yeasts, :yeastMinTemp, :yeast_min_temp
+	rename_column :yeasts, :yeastMaxTemp, :yeast_max_temp
+	rename_column :yeasts, :yeastNotes, :yeast_notes
+	rename_column :yeasts, :yeastBestFor, :yeast_best_for
+	rename_column :yeasts, :yeastMaxReuse, :yeast_max_reuse
+    end
+ end

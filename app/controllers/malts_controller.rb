@@ -37,7 +37,7 @@ end
 
 private
   def malts_params
-    params.require(:malt).permit(:maltName, :maltLovibond, :maltInfo, :maltCategory, :maltYield, :maltOrigin, :maltSupplier, :maltType )
+    params.require(:malt).permit(:malt_name, :malt_lovibond, :malt_info, :malt_category, :malt_yield, :malt_origin, :malt_supplier, :malt_type )
   end
 
 end

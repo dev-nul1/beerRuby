@@ -37,7 +37,7 @@ end
 
 private
   def hops_params
-    params.require(:hop).permit(:hopsName, :hopsGrown, :hopsInfo, :hopsUse, :hopsExample, :hopsAAULow, :hopsAAUHigh, :hopsSub )
+    params.require(:hop).permit(:hops_name, :hops_grown, :hop_info, :hops_use, :hops_example, :hops_aau_low, :hops_aau_high, :hops_sub )
   end
 
 end

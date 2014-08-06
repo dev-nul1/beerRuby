@@ -21,7 +21,7 @@
       </div>
     </div>
      <hr>
-<%= pie_chart Hop.group("hopsGrown").count %>
+     <%= pie_chart Hop.group(:hops_grown).count %>
 
 <div class="row">
           <div class="col-md-12">
@@ -43,13 +43,13 @@
                   <% @hop.each do |hop| %>
 
 				<td><%= hop.id %></td>
-				<td><%= hop.hopsName %></td>
-				<td><%= hop.hopsGrown %></td>
-				<td><%= hop.hopsInfo %></td>
-				<td><%= hop.hopsUse %></td>
-				<td><%= hop.hopsExample %></td>
-				<td><%= hop.hopsAAULow %>-<%= hop.hopsAAUHigh %>%</td>
-				<td><%= hop.hopsSub %></td>
+				<td><%= hop.hops_name %></td>
+				<td><%= hop.hops_grown %></td>
+				<td><%= hop.hops_info %></td>
+				<td><%= hop.hops_use %></td>
+				<td><%= hop.hops_example %></td>
+				<td><%= hop.hops_aau_low %>-<%= hop.hops_aau_high %>%</td>
+				<td><%= hop.hops_sub %></td>
 
               </tr>
           <% end %>

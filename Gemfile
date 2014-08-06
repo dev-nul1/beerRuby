@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-group :production do
+#gem 'sqlite3'
+group :production, :development, :test do
   gem 'pg'
 end
 # Use SCSS for stylesheets
@@ -23,15 +23,18 @@ gem 'coffee-rails', '~> 4.0.0'
 # Auto prefixer and custom gems
 gem 'autoprefixer-rails'
 gem 'haml'
-gem 'google-api-client'
-gem "omniauth-google-oauth2", "~> 0.2.1"
+#gem 'google-api-client'
+#gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'devise'
 gem 'tzinfo-data'
-gem 'tzinfo-data', platforms: [:mingw, :mswin]
+#gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'cancan'
 gem 'chartkick'
+gem 'active_median', '~> 0.1.0'
 gem 'groupdate'
 gem 'beerxml'
+gem 'rails_admin'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

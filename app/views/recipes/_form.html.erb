@@ -1,0 +1,31 @@
+<%= form_for(@recipe) do |f| %>
+  <fieldset>
+    <legend><%= @recipe.name ? 'Edit' : 'Add' %> Recipe</legend>
+    <div class="row">
+      <div class="large-6 columns">
+        <h4><%= @recipe.name ? 'Edit' : 'Add a new' %> Recipe.</h4>
+        <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } unless @recipe.name %>
+        <%= f.input :name, label: false, placeholder: 'Name' %>
+        <%= f.input :tag_list, label: false, placeholder: 'Tags', hint: 'Separate tags with commas.' %>
+        <%= f.input :photo %>
+        <%= f.input :directions, label: false, placeholder: 'Directions', hint: 'Separate each step with commas (Ex. cook, eat, enjoy).',
+                    input_html: { rows: 4 } %>
+      </div>
+
+      <div class="large-6 columns">
+        <h4>Ingredients.</h4>
+        <%= f.simple_fields_for :ingredients do |ingredient| %>
+          <%= render 'ingredient_fields', :f => ingredient %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association 'Add Ingredient', f, :ingredients, class: 'button tiny radius' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row collapse">
+      <%= f.button :submit %>
+      <%= link_to "Back", root_path %>
+    </div>
+  </fieldset>
+<% end %>

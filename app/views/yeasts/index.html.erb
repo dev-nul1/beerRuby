@@ -49,17 +49,17 @@
                   <% @yeast.each do |yeast| %>
 
 				<td><%= yeast.id %></td>
-				<td><%= yeast.yeastName %></td>
-				<td><%= yeast.yeastFloc %></td>
-				<td><%= yeast.yeastAtten %></td>
-				<td><%= yeast.yeastTolerance %></td>
-				<td><%= yeast.yeastType %></td>
-        <td><%= yeast.yeastForm %></td>
-				<td><%= yeast.yeastLab %> [<%= yeast.yeastProdID %>]</td>
-        <td><%= yeast.yeastMinTemp %> - <%= yeast.yeastMaxTemp %></td>
-        <td><%= yeast.yeastNotes %></td>
-        <td><%= yeast.yeastBestFor %></td>
-        <td><%= yeast.yeastMaxReuse %></td>
+				<td><%= yeast.yeast_name %></td>
+				<td><%= yeast.yeast_floc %></td>
+				<td><%= yeast.yeast_atten %></td>
+				<td><%= yeast.yeast_tolerance %></td>
+				<td><%= yeast.yeast_type %></td>
+        <td><%= yeast.yeast_form %></td>
+				<td><%= yeast.yeast_lab %> [<%= yeast.yeast_prod_id %>]</td>
+        <td><%= yeast.yeast_min_temp %> - <%= yeast.yeast_max_temp %></td>
+        <td><%= yeast.yeast_notes %></td>
+        <td><%= yeast.yeast_best_for %></td>
+        <td><%= yeast.yeast_max_reuse %></td>
               </tr>
           <% end %>
 

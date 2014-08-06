@@ -22,7 +22,7 @@
     </div>
      <hr>
 
-
+<%= pie_chart Malt.group(:malt_yield).count %>
 
 <div class="row">
           <div class="col-md-12">
@@ -45,14 +45,14 @@
                   <% @malt.each do |malt| %>
 
 				<td><%= malt.id %></td>
-				<td><%= malt.maltName %></td>
-				<td><%= malt.maltLovibond %>°L</td>
-				<td><%= malt.maltInfo %></td>
-				<td><%= malt.maltCategory %></td>
-				<td><%= malt.maltYield %>%</td>
-   <!--     <td> malt.maltOrigin %></td>
-				<td> malt.maltSupplier %></td> -->
-				<td><%= malt.maltType %></td>
+				<td><%= malt.malt_name %></td>
+				<td><%= malt.malt_lovibond %>°L</td>
+				<td><%= malt.malt_info %></td>
+				<td><%= malt.malt_category %></td>
+				<td><%= malt.malt_yield %>%</td>
+   <!--     <td> malt.malt_origin %></td>
+				<td> malt.malt_supplier %></td> -->
+				<td><%= malt.malt_type %></td>
               </tr>
           <% end %>
 
